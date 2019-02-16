@@ -1,0 +1,155 @@
+{
+    "version": 1,
+    "supportedProjectTypes": [],
+    "id": "A.GClass",
+    "category": "GDN.C++",
+    "trDescription": "Creates a C++ header and a source file for a new class into the GDNative C++ project.",
+    "trDisplayName": "Godot C++ Class",
+    "trDisplayCategory": "Godot C++",
+    "iconText": "Godot\nh/cpp",
+    "enabled": "%{JS: [ %{Plugins} ].indexOf('CppEditor') >= 0}",
+    "options":
+    [
+        { "key": "TargetPath", "value": "%{Path}" },
+        { "key": "HdrPath", "value": "%{Path}/%{HdrFileName}" },
+        { "key": "SrcPath", "value": "%{Path}/%{SrcFileName}" },
+        { "key": "CN", "value": "%{JS: Cpp.className('%{Class}')}" },
+        { "key": "Base", "value": "%{BaseEdit}" },
+        { "key": "GUARD", "value": "%{JS: Cpp.headerGuard('%{HdrFileName}')}" }
+    ],
+    "pages":
+    [
+        {
+            "trDisplayName": "Define Class",
+            "trShortTitle": "Details",
+            "typeId": "Fields",
+            "data":
+            [
+                {
+                    "name": "Class",
+                    "trDisplayName": "Class name:",
+                    "mandatory": true,
+                    "type": "LineEdit",
+                    "data":
+                    {
+                        "validator": "(?:(?:[a-zA-Z_][a-zA-Z_0-9]*::)*[a-zA-Z_][a-zA-Z_0-9]*|)"
+                    }
+                },
+                {
+                    "name": "BaseEdit",
+                    "type": "LineEdit",
+                    "trDisplayName": "Base class:",
+                    "mandatory": true,
+                    "data":
+                    {
+                        "trText": "",
+                        "trDisabledText": ""
+                    }
+                },
+                {
+                    "name": "Sp",
+                    "type": "Spacer",
+                    "data":
+                    {
+                        "factor": 1
+                    }
+                },
+                {
+                    "name": "UseNamespace",
+                    "trDisplayName": "Use godot namespace",
+                    "type": "CheckBox",
+                    "data":
+                    {
+                        "checked": true
+                    }
+                },
+                {
+                    "name": "Sp",
+                    "type": "Spacer",
+                    "data":
+                    {
+                        "factor": 1
+                    }
+                },
+                {
+                    "name": "HdrFileName",
+                    "type": "LineEdit",
+                    "trDisplayName": "Header file:",
+                    "mandatory": true,
+                    "data":
+                    {
+                        "trText": "%{JS: '%{Class}' + '.' + '%{JS: Util.preferredSuffix('text/x-c++hdr')}'}"
+                    }
+                },
+                {
+                    "name": "SrcFileName",
+                    "type": "LineEdit",
+                    "trDisplayName": "Source file:",
+                    "mandatory": true,
+                    "data":
+                    {
+                        "trText": "%{JS: '%{Class}' + '.' + '%{JS: Util.preferredSuffix('text/x-c++src')}'}"
+                    }
+                },
+                {
+                    "name": "Path",
+                    "type": "PathChooser",
+                    "trDisplayName": "Path:",
+                    "mandatory": true,
+                    "data":
+                    {
+                        "kind": "existingDirectory",
+                        "basePath": "%{InitialPath}",
+                        "path": "%{InitialPath}"
+                    }
+                }
+            ]
+        },
+    {
+        "trDisplayName": "Project Management",
+        "trShortTitle": "Summary",
+        "typeId": "Summary"
+    }
+    ],
+    "generators":
+    [
+        {
+            "typeId": "File",
+            "data":
+            [
+                {
+                    "source": "file.h",
+                    "target": "%{HdrPath}",
+                    "openInEditor": true,
+                    "options":
+                    [
+                        {
+                            "key": "Cpp:License:FileName",
+                            "value": "%{HdrFileName}"
+                        },
+                        {
+                            "key": "Cpp:License:ClassName",
+                            "value": "%{CN}"
+                        }
+                    ]
+                },
+                {
+                    "source": "file.cpp",
+                    "target": "%{SrcPath}",
+                    "openInEditor": true,
+                    "options":
+                    [
+                        {
+                            "key": "Cpp:License:FileName",
+                            "value": "%{SrcFileName}"
+                        },
+                        {
+                            "key": "Cpp:License:ClassName",
+                            "value": "%{CN}"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
