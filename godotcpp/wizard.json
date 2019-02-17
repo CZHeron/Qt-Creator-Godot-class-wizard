@@ -47,14 +47,6 @@
                     }
                 },
                 {
-                    "name": "Sp",
-                    "type": "Spacer",
-                    "data":
-                    {
-                        "factor": 1
-                    }
-                },
-                {
                     "name": "UseNamespace",
                     "trDisplayName": "Use godot namespace",
                     "type": "CheckBox",
@@ -64,11 +56,94 @@
                     }
                 },
                 {
-                    "name": "Sp",
-                    "type": "Spacer",
+                "name": "Label1",
+                    "type": "Label",
+                    "span": true,
                     "data":
                     {
-                        "factor": 1
+                        "wordWrap": true,
+                        "trText": "Override functions:"
+                    }
+                },
+                {
+                    "name": "_enter_tree",
+                    "trDisplayName": "_enter_tree",
+                    "type": "CheckBox",
+                    "data":
+                    {
+                        "checked": false
+                    }
+                },
+                {
+                    "name": "_init",
+                    "trDisplayName": "_init",
+                    "type": "CheckBox",
+                    "data":
+                    {
+                        "checked": true
+                    }
+                },
+                {
+                    "name": "_ready",
+                    "trDisplayName": "_ready",
+                    "type": "CheckBox",
+                    "data":
+                    {
+                        "checked": true
+                    }
+                },
+                {
+                    "name": "_process",
+                    "trDisplayName": "_process",
+                    "type": "CheckBox",
+                    "data":
+                    {
+                        "checked": true
+                    }
+                },
+                {
+                    "name": "_exit_tree",
+                    "trDisplayName": "_exit_tree",
+                    "type": "CheckBox",
+                    "data":
+                    {
+                        "checked": true
+                    }
+                },
+                {
+                    "name": "_input",
+                    "trDisplayName": "_input",
+                    "type": "CheckBox",
+                    "data":
+                    {
+                        "checked": false
+                    }
+                },
+                {
+                    "name": "_unhandled_input",
+                    "trDisplayName": "_unhandled_input ",
+                    "type": "CheckBox",
+                    "data":
+                    {
+                        "checked": false
+                    }
+                },
+                {
+                    "name": "_unhandled_key_input",
+                    "trDisplayName": "_unhandled_key_input",
+                    "type": "CheckBox",
+                    "data":
+                    {
+                        "checked": false
+                    }
+                },
+                {
+                    "name": "_physics_process",
+                    "trDisplayName": "_physics_process",
+                    "type": "CheckBox",
+                    "data":
+                    {
+                        "checked": false
                     }
                 },
                 {
